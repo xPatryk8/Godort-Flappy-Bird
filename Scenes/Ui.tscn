@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh7p2tscvlmwr"]
+
+[ext_resource type="FontFile" uid="uid://x2njrgfgurq1" path="res://Sprites/Font/FlappybirdyRegular-KaBW.ttf" id="1_3wtt0"]
+[ext_resource type="Script" path="res://Scripts/Ui.gd" id="1_823cg"]
+[ext_resource type="Texture2D" uid="uid://ds8sv25jorxkw" path="res://Sprites/panel_score.png" id="1_mkl8e"]
+[ext_resource type="Texture2D" uid="uid://dw5jqvx3x7ssj" path="res://Sprites/Lables/label_game_over.png" id="2_2qdgy"]
+[ext_resource type="Texture2D" uid="uid://rvifl7x5j5mu" path="res://Sprites/Buttons/button_play_normal.png" id="3_7rso1"]
+[ext_resource type="Texture2D" uid="uid://dssco0oam8e8u" path="res://Sprites/Buttons/button_play_pressed.png" id="4_jqfl6"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_823cg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 32
+
+[node name="PointsLabel" type="Label" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_3wtt0")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameOver" type="TextureRect" parent="MarginContainer/GameOverBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_2qdgy")
+
+[node name="Panel" type="Panel" parent="MarginContainer/GameOverBox"]
+custom_minimum_size = Vector2(111, 56)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GameOverBox/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 57.0
+grow_horizontal = 2
+texture = ExtResource("1_mkl8e")
+expand_mode = 5
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/GameOverBox/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 81.0
+offset_top = 4.0
+offset_right = 102.0
+offset_bottom = 37.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_3wtt0")
+theme_override_font_sizes/font_size = 13
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOverBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/GameOverBox/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_7rso1")
+texture_pressed = ExtResource("4_jqfl6")
